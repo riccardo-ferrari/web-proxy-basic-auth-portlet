@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<portlet>
+		<portlet-name>web-proxy-basic-auth</portlet-name>
+		<display-name>Web Proxy with Basic Auth</display-name>
+		<portlet-class>com.liferay.portlet.webproxy.WebProxyBasicAuthPortlet</portlet-class>
+		<init-param>
+			<name>authenticatorClassName</name>
+			<value>com.liferay.portlet.webproxy.authenticator.LiferayBridgeAuthenticator</value>
+			<!-- 
+			<value>org.portletbridge.portlet.DefaultBridgeAuthenticator</value>
+			-->
+		</init-param>
+		<init-param>
+			<name>config-template</name>
+			<value>/html/portlet/web_proxy/configuration.jsp</value>
+		</init-param>
+		<init-param>
+			<name>cssRegex</name>
+			<value>(?:url\((?:'|")?(.*?)(?:'|")?\))|(?:@import\s+[^url](?:'|")?(.*?)(?:'|")|;|\s+|$)</value>
+		</init-param>
+		<init-param>
+			<name>editStylesheet</name>
+			<value>classpath:/org/portletbridge/xsl/pages/edit.xsl</value>
+		</init-param>
+		<init-param>
+			<name>errorStylesheet</name>
+			<value>classpath:/org/portletbridge/xsl/pages/error.xsl</value>
+		</init-param>
+		<init-param>
+			<name>helpStylesheet</name>
+			<value>classpath:/org/portletbridge/xsl/pages/help.xsl</value>
+		</init-param>
+		<init-param>
+			<name>idParamKey</name>
+			<value>id</value>
+		</init-param>
+		<init-param>
+			<name>jsRegex</name>
+			<value>open\('([^']*)'|open\("([^\"]*)"</value>
+		</init-param>
+		<init-param>
+			<name>mementoSessionKey</name>
+			<value>mementoBasicAuthSessionKey</value>
+		</init-param>
+		<init-param>
+			<name>parserClassName</name>
+			<value>org.cyberneko.html.parsers.SAXParser</value>
+		</init-param>
+		<init-param>
+			<name>servletName</name>
+			<value>pbhs</value>
+		</init-param>
+		<init-param>
+			<name>stylesheetUrl</name>
+			<value>classpath:/org/portletbridge/xsl/default.xsl</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Web Proxy with Basic Auth</title>
+			<short-title>Web Proxy with Basic Auth</short-title>
+			<keywords>Web Proxy with Basic Auth</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+</portlet-app>

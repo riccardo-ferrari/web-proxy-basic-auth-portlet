@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+		<servlet-name>Portlet Bridge Servlet</servlet-name>
+		<servlet-class>org.portletbridge.portlet.PortletBridgeServlet</servlet-class>
+		<init-param>
+			<param-name>mementoSessionKey</param-name>
+			<param-value>mementoBasicAuthSessionKey</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cssRegex</param-name>
+			<param-value>(?:url\((?:'|")?(.*?)(?:'|")?\))|(?:@import\s+[^url](?:'|")?(.*?)(?:'|")|;|\s+|$)</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jsRegex</param-name>
+			<param-value>open\('([^']*)'|open\("([^\"]*)"</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignoreRequestHeaders</param-name>
+			<param-value>accept-encoding,connection,keep-alive</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignorePostToGetRequestHeaders</param-name>
+			<param-value>content-type,content-length</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Portlet Bridge Servlet</servlet-name>
+		<url-pattern>/pbhs/*</url-pattern>
+	</servlet-mapping>
+</web-app>
