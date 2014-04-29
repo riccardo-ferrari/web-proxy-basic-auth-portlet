@@ -8,6 +8,8 @@
 		<configuration-action-class>com.liferay.portlet.webproxy.action.ConfigurationActionImpl</configuration-action-class>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<instanceable>true</instanceable>
+		<!-- 
+		 -->
 		<private-request-attributes>false</private-request-attributes>
 		<private-session-attributes>false</private-session-attributes>
 		<render-weight>50</render-weight>

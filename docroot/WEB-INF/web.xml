@@ -5,7 +5,7 @@
 		<servlet-class>org.portletbridge.portlet.PortletBridgeServlet</servlet-class>
 		<init-param>
 			<param-name>mementoSessionKey</param-name>
-			<param-value>mementoBasicAuthSessionKey</param-value>
+			<param-value>LIFERAY_SHARED_mementoBasicAuthSessionKey</param-value>
 		</init-param>
 		<init-param>
 			<param-name>cssRegex</param-name>

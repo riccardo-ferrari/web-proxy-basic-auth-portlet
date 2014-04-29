@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.User;
+import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.util.PortalUtil;
 
 public class LiferayBridgeAuthenticator implements BridgeAuthenticator, Serializable{
@@ -62,7 +63,7 @@ public class LiferayBridgeAuthenticator implements BridgeAuthenticator, Serializ
 			PortletRequest portletRequest, String password) {
 
 		if (Validator.isNull(password) || password.equals("@password@")) {
-			password = PortalUtil.getUserPassword(portletRequest);
+			password = PrincipalThreadLocal.getPassword();
 
 			if (password == null) {
 				password = StringPool.BLANK;

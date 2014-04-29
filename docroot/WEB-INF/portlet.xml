@@ -42,7 +42,7 @@
 		</init-param>
 		<init-param>
 			<name>mementoSessionKey</name>
-			<value>mementoBasicAuthSessionKey</value>
+			<value>LIFERAY_SHARED_mementoBasicAuthSessionKey</value>
 		</init-param>
 		<init-param>
 			<name>parserClassName</name>
