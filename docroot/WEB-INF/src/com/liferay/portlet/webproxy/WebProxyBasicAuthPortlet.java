@@ -33,6 +33,9 @@ import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+import javax.portlet.ResourceURL;
 
 import org.portletbridge.portlet.PortletBridgePortlet;
 
@@ -78,8 +81,14 @@ public class WebProxyBasicAuthPortlet extends PortletBridgePortlet {
 			String output = bufferCacheServletResponse.getString();
 
 			output = StringUtil.replace(
-				output, "//pbhs/", PortalUtil.getPathContext() + "/pbhs/");
+				output, "//pbhs/", renderRequest.getContextPath() + "/pbhs/");
+			
+			
+			output = StringUtil.replace(
+					output, renderRequest.getContextPath() + "/pbhs/", 
+					"/delegate" + "/pbhs/");
 
+			
 			bufferCacheServletResponse.setString(output);
 		}
 	}
@@ -118,6 +127,12 @@ public class WebProxyBasicAuthPortlet extends PortletBridgePortlet {
 					"JDK's endorsed directory");
 
 		writer.close();
+	}
+	
+	@Override
+	public void serveResource(ResourceRequest request, ResourceResponse response)
+			throws PortletException, IOException {
+		
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(WebProxyBasicAuthPortlet.class);
