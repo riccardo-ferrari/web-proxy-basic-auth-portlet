@@ -40,7 +40,8 @@ import javax.portlet.ResourceURL;
 import org.portletbridge.portlet.PortletBridgePortlet;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Brian Wing Shun 
+ * @author Riccardo Ferrari
  */
 public class WebProxyBasicAuthPortlet extends PortletBridgePortlet {
 
